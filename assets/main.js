@@ -14,16 +14,20 @@ $(function(){
   var year = d.getFullYear();
   var month = d.getMonth() + 1;
   
+  //put date with some padding using ternaries
   var date = `${year}-${month > 9 ? month : '0'+month}-${day > 9 ? day : '0'+day}`;
   
+  //set current date and max date limiting furture requests
   dateInput.setAttribute('value', date);
   dateInput.setAttribute('max', date);
   
+  //event listener to refetch when date is changed on the calendar
   dateInput.onchange = function(){
     date = dateInput.value;
     fetchImage(date);
   };
   
+  //our parameters for our ajax request
   var APOD = {
     url: 'https://api.nasa.gov/planetary/apod',
     type: 'GET',
@@ -31,10 +35,11 @@ $(function(){
     data: {
       api_key: '8tKXFJvk4bzxmNizdRyj62p8ouqTEIo4LCoJO7FP',
       hd: true,
-      date: null
+      date: null //we leave this as null just incase date failed, since default is current date in UTC
     }
   };
   
+  //function to fetch image from NASA using ajax
   var fetchImage = function(dateVar){
     if(dateVar){
       APOD.data.date = dateVar;
@@ -47,7 +52,7 @@ $(function(){
     });
   };
   
-  //first invoke
+  //initial fetch
   fetchImage(date);
 
   // When the user clicks on the image, open the modal 
