@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "nasa-apod",
+    "short_description": "Get NASA Astronomy Picture of the Day",
+    "long_description": "Get NASA Astronomy Picture of the Day and also look up any previous pictures of the day",
+    "installation_instructions": "Simply click install."
+  }
+}

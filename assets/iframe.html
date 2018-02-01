@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- http://garden.zendesk.com -->
+  <link rel="stylesheet" href="https://assets.zendesk.com/apps/sdk-assets/css/2/zendesk_garden.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+</head>
+<body>
+  <!-- https://github.com/zendesk/zendesk_app_framework_sdk -->
+  <img id='image' style="width:100px;"/>
+  <!--Modal -->
+  <div id="img-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <h3 id='img-title'></h3>
+      <img id='hd-image' style="width:auto"/>
+      <p id='img-des'></p>
+    </div>
+
+  </div>
+  <div class="input-container">
+    <h5>Select a previous date for a different Astronomy Picure of the Day</h5>
+    <input type='date' id='date'></input>
+  </div>
+  
+  <script type="text/javascript" src="main.js">
+  // Get the modal and html tags
+    var modal = document.getElementById('img-modal');
+    var imgTitle = document.getElementById('img-title');
+    var imgDes = document.getElementById('img-des');
+    var image = document.getElementById('image');
+    var hdImage = document.getElementById('hd-image');
+    
+    //get current Date and parse to usable date for NASA YYYY-MM-DD
+    var d = new Date();
+    var day = d.getDate();
+    var year = d.getFullYear();
+    var day = d.getMonth() + 1;
+    
+    var date = `${year}-${month > 9 ? month : '0'+month}-${day > 9 ? day : '0'+day}`
+
+    // When the user clicks on the image, open the modal 
+    image.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target === modal) {
+          modal.style.display = "none";
+      }
+    }
+  </script>
+  
+</body>
+</html>

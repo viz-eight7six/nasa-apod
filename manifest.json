@@ -1,0 +1,17 @@
+{
+  "name": "nasa-apod",
+  "author": {
+    "name": "Vinson Chen",
+    "email": "vinson1shu@gmail.com",
+    "url": "https://eight7six.zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/iframe.html"
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
