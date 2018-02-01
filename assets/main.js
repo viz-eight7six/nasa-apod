@@ -17,9 +17,10 @@ $(function(){
   var date = `${year}-${month > 9 ? month : '0'+month}-${day > 9 ? day : '0'+day}`;
   
   dateInput.setAttribute('value', date);
+  dateInput.setAttribute('max', date);
   
-  dateInput.onchange = function(value){
-    date = value;
+  dateInput.onchange = function(){
+    date = dateInput.value;
     fetchImage(date);
   };
   
